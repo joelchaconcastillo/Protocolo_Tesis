@@ -1,6 +1,7 @@
 all:
 	pdflatex main.tex
-	bibtex main.aux
+	#bibtex main.aux
+	biber main
 	pdflatex main.tex
 	pdflatex main.tex
 #	mv main.pdf Tesis_Multiobjetivo.pdf
