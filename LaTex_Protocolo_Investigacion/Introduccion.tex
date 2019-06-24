@@ -12,7 +12,7 @@ En general, los \EAS{} han sido especialmente exitosos en la resolución de prob
 % 
 \subsection{Optimizadores estocásticos poblacionales}
 
-De acuerdo a \cite{voss2012meta}, una metaheurística es un proceso maestro iterativo que guía y modifica las operaciones para ordenar heurísticas para producir de forma eficiente soluciones de calidad. 
+De acuerdo a \cite{voss2012meta}, una meta-heurística es un proceso maestro iterativo que guía y modifica las operaciones para ordenar heurísticas con el fin de producir de forma eficiente soluciones de calidad. 
 %
 Esto podría manipular una solución completa (o incompleta) o un conjunto de soluciones por iteración.
 %
@@ -33,7 +33,7 @@ Algunas de las metaheurísticas poblacionales mas populares se listan a continua
     \item Algoritmos genéticos (Genetic algorithm).
     \item Programación genética (Genetic programming).
     \item Programación evolutiva (Evolutionary programming).
-    \item Evolución diferencial (Differential Evolution).
+    \item Evolución diferencial (Differential evolution).
     \item Búsqueda de dispersión (Scatter search).
     \item Estrategia evolutiva (Evolution strategy).
     \item Algoritmos de estimación de distribución (Estimation of distribution algorithm).
@@ -42,10 +42,10 @@ Algunas de las metaheurísticas poblacionales mas populares se listan a continua
     \item Algoritmos de optimización por colonias de hormigas (Ant colony optimization algorithms).
 \end{itemize}
 
-\begin{figure}[]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{clasificacion.png}
-\caption{Clasificación de el campo de meta-heurísticas. Figura tomada de \cite{beheshti2013review}.}
+\caption{Clasificación del campo de meta-heurísticas. Figura tomada de \cite{beheshti2013review}.}
 \label{fig:clasificacion}
 \end{figure}
 
@@ -53,7 +53,7 @@ Algunas de las metaheurísticas poblacionales mas populares se listan a continua
 
 \subsection{Definición del problema}
 
-Actualmente, los algoritmos evolutivos son una de las metaheurísticas más conocidas (\cite{glover2005handbook}), pero a pesar de su éxito la mayoría son diagnosticados con problemas de convergencia acelerada, en consecuencia el proceso de búsqueda puede estar estancado por el tiempo restante de ejecución.
+Actualmente, los algoritmos evolutivos son una de las meta-heurísticas más conocidas (\cite{glover2005handbook}), pero a pesar de su éxito la mayoría son diagnosticados con problemas de convergencia acelerada, en consecuencia el proceso de búsqueda puede estar estancado al inicio de su tiempo total de ejecución y desperdiciar recursos valiosos el resto de su ejecución.
 %
 Este problema es más notorio al considerar ejecuciones a largo plazo y con problemas complejos.
 %
@@ -70,7 +70,7 @@ es decir, muchas de las nuevas soluciones evaluadas serán distantes a las ya ev
 %
 Sin embargo, cuando casi todas las soluciones están en una o en unas pocas regiones, se produce una búsqueda intensificadora.
 %
-Uno de los problemas en el diseño de los algoritmos evolutivos es que en muchos casos no se comprenden todas las implicaciones que los diferentes componentes tienen sobre el mantenimiento de la diversidad de la población y en consecuencia sobre el balanceo entre exploración e intensificación~\cite{Crepinsek:13}.
+Uno de los problemas en el diseño de los algoritmos evolutivos es que en muchos casos no se comprenden todas las implicaciones que los diferentes componentes tienen sobre el mantenimiento de la diversidad de la población y en consecuencia sobre el balanceo entre exploración e intensificación (\cite{Crepinsek:13}).
 %
 Por ello, analizar el comportamiento y rediseñar en base a lo que está ocurriendo en este aspecto, es parte del proceso de diseño de los algoritmos evolutivos.
 
@@ -84,7 +84,7 @@ Por ello, es importante detectar si esto ocurre y en tal caso rediseñar algunos
 %
 Sin embargo, si la población es muy diversa durante todo el proceso de búsqueda, se podría no alcanzar un grado adecuado de intensificación y por lo tanto se tendría una convergencia lenta que posiblemente también resultaría en soluciones de baja calidad.
 
-\subsection{Éxito de diversidad, criterio de parada y tiempo transcurrido en optimización combinatoria}
+\subsection{Importancia de la diversidad, criterio de parada y tiempo transcurrido en optimización combinatoria}
 
 En los últimos años, algunos de los trabajos más exitosos en el área de optimización combinatoria mono-objetivo son contemplados en ejecuciones a largo plazo y consideran mecanismos para gestionar diversidad de forma explícita en el espacio de las variables considerando el tiempo transcurrido y el criterio de parada.
 %

@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {american}{}
+\defcounter {refsection}{0}\relax 
+\select@language {american}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Protocolo de investigaci\IeC {\'o}n}{1}{chapter.1}
 \defcounter {refsection}{0}\relax 
@@ -7,34 +8,42 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.1}Optimizadores estoc\IeC {\'a}sticos poblacionales}{1}{subsection.1.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.2}Definici\IeC {\'o}n del problema}{2}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.2}Definici\IeC {\'o}n del problema}{3}{subsection.1.1.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.3}Principios de dise\IeC {\~n}o de un algoritmo estoc\IeC {\'a}stico poblacional}{4}{subsection.1.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.4}\IeC {\'E}xito de diversidad, criterio de parada y tiempo transcurrido en optimizaci\IeC {\'o}n combinatoria}{5}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.4}Importancia de la diversidad, criterio de parada y tiempo transcurrido en optimizaci\IeC {\'o}n combinatoria}{5}{subsection.1.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Revisi\IeC {\'o}n de la literatura en relaci\IeC {\'o}n a la diversidad}{5}{section.1.2}
+\contentsline {section}{\numberline {1.2}Estado del arte}{5}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.1}Clasificaciones de mecanismos para promover la diversidad}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.1}Revisi\IeC {\'o}n de la literatura en relaci\IeC {\'o}n a la diversidad}{6}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.2}Esquemas cl\IeC {\'a}sicos para administrar la diversidad}{7}{subsection.1.2.2}
+\contentsline {subsubsection}{\nonumberline Clasificaciones de mecanismos para promover la diversidad}{7}{section*.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.3}Esquemas de reemplazamiento basados en diversidad}{9}{subsection.1.2.3}
+\contentsline {subsubsection}{\nonumberline Esquemas cl\IeC {\'a}sicos para administrar la diversidad}{8}{section*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Estado del arte}{11}{section.1.3}
+\contentsline {subsubsection}{\nonumberline Esquemas de reemplazamiento basados en diversidad}{9}{section*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.1}Algoritmos mono-objetivo que consideran la diversidad}{11}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.2.2}Algoritmos mono-objetivo que consideran la diversidad}{11}{subsection.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.2}Algoritmos multi-objetivo que consideran la diversidad en el espacio de las variables}{12}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.2.3}Algoritmos multi-objetivo que consideran la diversidad en el espacio de las variables}{12}{subsection.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Hip\IeC {\'o}tesis}{15}{section.1.4}
+\contentsline {section}{\numberline {1.3}Hip\IeC {\'o}tesis}{15}{section.1.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.5}Objetivos}{15}{section.1.5}
+\contentsline {section}{\numberline {1.4}Objetivos}{15}{section.1.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.6}Propuestas iniciales}{16}{section.1.6}
+\contentsline {section}{\numberline {1.5}Propuestas iniciales}{16}{section.1.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.7}L\IeC {\'\i }neas de trabajo}{17}{section.1.7}
+\contentsline {subsection}{\numberline {1.5.1}Descripci\IeC {\'o}n de la propuesta basada en evoluci\IeC {\'o}n diferencial (mono-objetivo)}{16}{subsection.1.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.8}Cronograma}{18}{section.1.8}
+\contentsline {subsection}{\numberline {1.5.2}Descripci\IeC {\'o}n de la propuesta multi-objetivo}{17}{subsection.1.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Bibliography}{19}{chapter*.2}
+\contentsline {subsection}{\numberline {1.5.3}Descripci\IeC {\'o}n de la propuesta aplicada}{17}{subsection.1.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.5.4}Descripci\IeC {\'o}n propuesta del operador de cruce binario simulado}{18}{subsection.1.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.6}L\IeC {\'\i }neas de trabajo}{19}{section.1.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.7}Cronograma}{20}{section.1.7}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Bibliography}{21}{chapter*.5}
