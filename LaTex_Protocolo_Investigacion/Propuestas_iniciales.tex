@@ -1,50 +1,106 @@
 \section{Propuestas iniciales}
 
-Hasta este momento se han desarrollado varias propuestas, de las cuales se han concretado en mono-objetivo con Evolución Diferencial ''\textit{Differential Evolution with Enhanced Diversity Maintenance}``, en multi-objetivo ''\textit{A Dominance-Based Multi-Objective Evolutionary Algorithm with Explicit Variable Space Diversity Managment}``, un problema aplicado ''\textit{A Novel Memetic Algorithm with Explicit Control of Diversity for the Menu Planning Problem}`` y una estudio que relaciona al criterio de parada con los componentes internos del operador de cruce ''\textit{Analysis and Enhancement of Simulated Binary Crossover}``.
+Hasta este momento se han desarrollado varias propuestas iniciales para validar la hipótesis en varias áreas.
 %
-Las primeras tres propuestas se basan en la misma idea básica: incorporar un mecanismo de reemplazo en el cual se gestione la diversidad de forma explícita en el espacio de las variables de decisión considerando el criterio de parada y el tiempo transcurrido.
+En particular, se han concretado propuestas en mono-objetivo con una variante de Evolución Diferencial llamada 
+''\textit{Differential Evolution with Enhanced Diversity Maintenance}``, en multi-objetivo con 
+''\textit{A Dominance-Based Multi-Objective Evolutionary Algorithm with Explicit Variable Space Diversity Managment}``, 
+en un problema aplicado con ''\textit{A Novel Memetic Algorithm with Explicit Control of Diversity for the Menu Planning Problem}`` 
+y un estudio que relaciona el criterio de parada con los componentes internos del operador de cruce SBX en 
+''\textit{Analysis and Enhancement of Simulated Binary Crossover}``.
 %
-La última propuesta incorpora el criterio de parada y el tiempo transcurrido en los mecanismos internos del operador de cruce SBX '\textit{Analysis and Enhancement of Simulated Binary Crossover}``.
+Las primeras tres propuestas se basan en la misma idea básica: incorporar un mecanismo de reemplazo en el cual se 
+gestione la diversidad de forma explícita en el espacio de las variables de decisión considerando el criterio de parada y el 
+tiempo transcurrido.
 %
-Para mayor detalle se pueden consultar los documentos anexos
+En cada caso, se ha aplicado a un área diferente (mono-objetivo continuo, mono-objetivo combinatorio y multi-objetivo continuo)
+por lo que cada uno de ellos tiene diferencias importantes en cuanto a como adaptar dicho principio al caso específico.
+%
+La última propuesta incorpora el criterio de parada y el tiempo transcurrido en los mecanismos internos del operador de 
+cruce SBX '\textit{Analysis and Enhancement of Simulated Binary Crossover}``.
+%
+Para mayor detalle se incluye un documento anexo para cada una de estas alternativas y en este documento, se ofrece
+un resumen con las características principales.
 
 \subsection{Descripción de la propuesta basada en evolución diferencial (mono-objetivo)}
 
-Por su parte en el trabajo de evolución diferencial, principalmente se proponen dos mecanismos importantes, el primero consiste en una fase de reemplazo en la cual se gestiona la diversidad de los individuos de forma explícita, esta estrategia relaciona el tiempo transcurrido con el criterio de parada, de esta forma se previene la convergencia acelerada a ciertas regiones del espacio de búsqueda.
+En el trabajo de evolución diferencial, principalmente se proponen dos mecanismos novedosos que se incluye
+en una evolución diferencial estándar.
 %
-El segundo mecanismo involucra un archivo de vectores elite, esto es con el propósito de mantener a aquellos individuos que pertenezcan a las regiones más promisorias, esta población es mantenida sin importar su contribución a la diversidad.
+El primero consiste en una fase de reemplazo en la cual se gestiona la diversidad de los individuos de forma explícita.
 %
-Particularmente, los resultados obtenidos fueron notablemente mejor que el estado del arte inclusive considerando otros mecanismos de reemplazo para gestionar la diversidad.
+Esta estrategia relaciona el tiempo transcurrido con el criterio de parada de forma que se evita la convergencia acelerada 
+a ciertas regiones del espacio de búsqueda.
 %
-Una observación en la parte de la validación experimental es que el conjunto de vectores elite mantenían diversidad de forma implícita en relación a los padres.
+El segundo mecanismo involucra un archivo de vectores elite con el propósito de mantener a aquellos individuos que 
+se encuentran en regiones promisorias, pero que en dicho momento no son suficiente distantes de los individuos actuales como
+para ser mantenidos en la población.
+%
+Dichos soluciones podrían ser reconsideradas en el futuro, cuando los requerimientos de diversidad sean menores.
+
+Los resultados obtenidos fueron notablemente mejor que el estado del arte inclusive considerando otros mecanismos de 
+reemplazo para gestionar la diversidad.
+%
+Una observación en la parte de la validación experimental es que el conjunto de vectores elite mantenían diversidad de 
+forma implícita, es decir, que incluso sin forzar la diversidad en los mismos, se mantenían soluciones distantes entre sí.
 
 \subsection{Descripción de la propuesta multi-objetivo}
 
-Aunque se han realizado varios trabajos relacionados con la diversidad en el espacio de las variables del ámbito multi-objetivo (ver sección \ref{sec:estado_arte}) ningún trabajo ha alcanzado resultados significativamente superiores a otros algoritmos multi-objetivos, esto sucede ya que cada problema posee una relación distinta entre el espacio de las variables y el espacio objetivo, y en resultado mantener diversidad en el espacio de las variables no garantiza una calidad en el espacio de los objetivos.
+Aunque se han realizado varios trabajos relacionados con la diversidad en el espacio de las variables del 
+ámbito multi-objetivo (ver sección \ref{sec:estado_arte}) ningún trabajo ha alcanzado resultados significativamente superiores 
+a otros algoritmos multi-objetivo que no consideran dicha diversidad.
 %
-Este inconveniente puede ser resuelto al considerar un modelo dinámico lineal donde sea incorporado el tiempo transcurrido y el criterio de parada.
+Consideramos que uno de los inconvenientes de los métodos en este sentido es que tratan de mantener diversidad todo el tiempo,
+lo que puede ser contraproducente.
 %
-Principalmente, en nuestra propuesta se propone una fase de reemplazo similar a la utilizada en evolución diferencial y un estimador de densidad del espacio de los objetivos.
+Por ello, se propone el primer método que considera un modelo de preservación de diversidad dinámico lineal donde se toma
+en cuenta el tiempo transcurrido y el criterio de parada.
 %
-La fase de reemplazo en la propuesta multi-objetivo considera una clasificación por frentes en base al concepto de dominancia que está relacionado al espacio de los objetivos.
+A grandes rasgos, en la propuesta se propone una fase de reemplazo similar a la utilizada en evolución diferencial pero al que se
+le incluye un estimador de densidad del espacio de los objetivos.
 %
-Por otra parte, el estimador de densidad que corresponde al espacio de los objetivos otorga un grado de calidad a cada solución en función a la distancia entre el espacio dominado por la soluciones de referencia y la solución actual.
+Además, la fase de reemplazo en la propuesta multi-objetivo considera la típica ordenación por frentes usados en los algoritmos
+basados en dominancia.
 %
+Por otra parte, el estimador de densidad se basa en la distancia entre el espacio dominado por la soluciones de referencia y 
+la solución actual.
 
 \subsection{Descripción de la propuesta aplicada}
 
-En esta propuesta se considera el problema de planeación de menú, este problema consiste en selecciónar de forma automática configuraciones de platillos (previamente propuestos por expertos) para cafeterías escolares, los platillos a cumplir por día estan conformados por el plato de entrada, plato fuerte y postre. 
+En esta propuesta se considera el problema de planeación de menú.
 %
-Particularmente, este problema es de combinatoria con restricciones pues los platillos deben cumplir una cantidad de nutrientes tanto por día como por un conjunto de días.
+Este problema consiste en seleccionar de forma automática un conjunto de platillos (previamente propuestos por expertos) 
+para cafeterías escolares.
 %
-Principalmente, en este problema se consideran tres aportaciones: se incorpora una fase de reemplazo similar a la aplicada en evolución diferencial (\textit{Best Non-Penalized Survivor Strategy - BNP}), se propone un operador de cruce (\textit{Similarity Based Crossover - SX}) y se aplica una búsqueda local por escalada \textit{First-improvement hill climbing}.
+Los platillos están conformados por el plato de entrada, plato fuerte y postre. 
 %
-En los resultados se observa que basta con realizar ejecuciones a mediano plazo (dos horas) para obtener resultados superiores al estado del arte.
+Particularmente, este problema es un problema de optimización combinatoria con restricciones.
+%
+Las restricciones están relacionadas con la cantidad de nutrientes que se deben tomar en las dietas.
+%
+En este problema se consideran tres aportaciones: se incorpora una fase de reemplazo similar a la aplicada en evolución 
+diferencial (\textit{Best Non-Penalized Survivor Strategy - BNP}), se propone un operador de cruce 
+(\textit{Similarity Based Crossover - SX}) y se aplica una búsqueda local por escalada \textit{First-improvement hill climbing}.
+%
+De estas tres aportaciones, la única esencial para analizar la hipótesis de este trabajo es la primera.
+%
+Sin embargo, sin incorporar las otras dos modificaciones, sería necesario realizar ejecuciones a muy largo plazo para llegar
+a soluciones de alta calidad.
+%
+En los resultados se observa que basta con realizar ejecuciones a mediano plazo (dos horas) para obtener resultados 
+superiores al estado del arte.
 
 \subsection{Descripción propuesta del operador de cruce binario simulado}
 
-En esta parte se analizan los componentes implementados en el operador de cruce binario simulado ''\textit{Simulated Binary Crossover}``, y se propone el operador dinámico de cruce binario simulado ''\textit{Dynamic Simulated Binary Crossover - DSXB}``.
+En esta parte se describen las modificaciones realizadas para el operador de cruce binario simulado 
+''\textit{Simulated Binary Crossover}``, que permitieron generar el operador dinámico de cruce binario simulado 
+''\textit{Dynamic Simulated Binary Crossover - DSXB}``.
 %
-Principalmente, se incorpora el tiempo transcurrido y el criterio de parada en varios componentes del operador de cruce como es la apertura de la curva de distribución, la cantidad de información que se hereda de los individuos padre a los individuos hijo.
+La idea principal de esta propuesta es utilizar el tiempo transcurrido y el criterio de parada para modificar la forma
+en que actúa el operador de cruce.
 %
-En este estudio no se preserva la diversidad de forma explícita, sin embargo se observa la importancia de considerar el criterio de parada y el tiempo transcurrido en los operadores de un algoritmo evolutivo.
+Así, se modifican varios aspectos como son la apertura de la curva de distribución o la cantidad de información que se hereda 
+de los individuos padre a los individuos hijo sin sufrir modificación.
+%
+En este estudio no se preserva la diversidad de forma explícita, sin embargo se observa la importancia de considerar el 
+criterio de parada y el tiempo transcurrido en los operadores de un algoritmo evolutivo.

@@ -1,4 +1,13 @@
 \section{Hipótesis}
-El mecanismo con el cual están diseñados los algoritmos evolutivos estándar poseen un problema de convergencia acelerada en las primeras etapas en ejecuciones a largo plazo, este problema podría ser tratado y generalizado en todos las meta-heurísticas poblacionales implementando estrategias para administrar la diversidad y considerando tanto el tiempo transcurrido de ejecución como el criterio de parada.
+
+Como se ha discutido en los apartados anteriores, en la mayor parte de algoritmos poblacionales es muy difícil de controlar
+la velocidad de convergencia y por ello uno de los inconvenientes más comunes a la hora de aplicarlos es que aparezcan problemas
+de convergencia prematura, especialmente al realizar ejecuciones a largo plazo.
 %
-Además, considerar este tipo de estrategias que gestionan la diversidad y teniendo información del problema, será posible personalizar cada problema para que generar resultados de calidad a mediano plazo.
+La hipótesis de este trabajo es que se puede superar ampliamente el estado del arte, si a la hora de diseñar las diferentes
+componentes de los algoritmos poblacionales se tiene en cuenta tanto el tiempo transcurrido de ejecución como el criterio de parada
+para controlar de forma directa o indirecta la diversidad.
+%
+Además, se hipotetiza que lo anterior es general, en el sentido de que aplica a diversos algoritmos poblacionales (no sólo los 
+algoritmos evolutivos) y en diferentes áreas, como puede ser optimización mono-objetivo y multi-objetivo tanto para el caso
+continuo como para el caso discreto.

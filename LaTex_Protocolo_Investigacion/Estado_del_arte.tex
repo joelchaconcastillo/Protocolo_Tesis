@@ -1,44 +1,48 @@
 
 \section{Estado del arte}\label{sec:estado_arte}
 
-En esta sección se presentan algunos de los algoritmos que implementan mecanismos para administrar la diversidad en el espacio de las variables.
+En esta sección se presentan algunos de los algoritmos que implementan mecanismos para administrar la diversidad en el 
+espacio de las variables.
 %
-Principalmente, en el campo multi-objetivo no hay una propuesta que explicitamente administre la diversidad en el espacio de las variables, que además considere el tiempo transcurrido y el criterio de parada.
+Particularmente, en el campo multi-objetivo no hay propuestas que explícitamente administre la diversidad en el espacio de 
+las variables y que además consideren el tiempo transcurrido y el criterio de parada.
 %
+Sin embargo, se revisan las que sí toman en cuenta la diversidad, aunque sin relacionarla con criterio de parada o tiempo 
+transcurrido.
+
 \subsection{Revisión de la literatura en relación a la diversidad}
 
-En relación al diseño de los algoritmos evolutivos, se puede observar que en sus inicios la mayoría de enfoques fueron esquemas generacionales (\cite{de2006evolutionary}) en los 
-que las soluciones hijas reemplazaban a la población anterior sin importar su respectiva aptitud o grado de diversidad.
+En relación al diseño de los algoritmos evolutivos, se puede observar que en sus inicios la mayoría de enfoques fueron 
+esquemas generacionales (\cite{de2006evolutionary}) en los que las soluciones hijas reemplazaban a la población anterior 
+sin importar su respectiva aptitud o grado de diversidad.
 %
-En estos esquemas iniciales se usaba la selección de padres para promover que el proceso de muestreo se realizara con mayor probabilidad en las regiones más promisorias encontradas. 
+En estos esquemas iniciales se usaba la selección de padres para promover que el proceso de muestreo se realizara con mayor 
+probabilidad en las regiones más promisorias encontradas. 
 %
-Por ello, con el propósito de alcanzar un balanceo adecuado entre exploración e intensificación, se desarrollaron muchas estrategias de selección de padres que permitían centrarse con mayor o menor velocidad en las regiones promisorias.
+Por ello, con el propósito de alcanzar un balanceo adecuado entre exploración e intensificación, se desarrollaron muchas 
+estrategias de selección de padres que permitían centrarse con mayor o menor velocidad en las regiones promisorias.
 %
 Además, se desarrollaron alternativas que modifican otros aspectos como la estrategia de variación (\cite{Joel:herrera2003fuzzy}) y/o 
 el modelo poblacional (\cite{alba2005parallel}).
 %
-En la mayor parte de los algoritmos evolutivos más recientes, se introduce además una fase de reemplazamiento (\cite{eiben2003introduction}) por lo que
-la nueva población no tiene que formarse exclusivamente con los hijos, más bien se usan mecanismos para combinar la población anterior con la población hija y determinar así los nuevos sobrevivientes.
+En la mayor parte de los algoritmos evolutivos más recientes, se introduce además una fase de 
+reemplazamiento (\cite{eiben2003introduction}) por lo que la nueva población no tiene que formarse exclusivamente con los hijos, 
+más bien se usan mecanismos para combinar la población anterior con la población hija y determinar así los nuevos 
+sobrevivientes.
 %
-En este contexto, se suele introducir elitismo en los algoritmos, es decir, el mejor individuo encontrado sobrevivirá a la siguiente generación (\cite{Joel:CHC}).
+En este contexto, se suele introducir elitismo en los algoritmos, es decir, el mejor individuo encontrado sobrevivirá a la 
+siguiente generación (\cite{Joel:CHC}).
 %
-De esta forma, ahora también se puede modificar esta última fase para conseguir el balanceo apropiado entre exploración e intensificación.
+De esta forma, ahora también se puede modificar esta última fase para conseguir el balanceo apropiado entre exploración e 
+intensificación.
 
-La convergencia prematura es una problemática muy conocida en el ámbito de los algoritmos evolutivos por lo que se han desarrollado gran cantidad de técnicas 
-para lidiar con la misma (\cite{pandey2014comparative}).
+La convergencia prematura es una problemática muy conocida en el ámbito de los algoritmos evolutivos por lo que se han 
+desarrollado gran cantidad de técnicas para lidiar con la misma (\cite{pandey2014comparative}).
 %
 Estas técnicas modifican de manera directa o indirecta la cantidad de diversidad mantenida por el algoritmo (\cite{Joel:Crepinsek})
 y varían desde técnicas generales hasta mecanismos dependientes de un problema dado.
 %
 En este apartado se revisan algunas de las técnicas generales más populares.
-
-%
-%Inicialmente, se describen algunas maneras de clasificar a este tipo de estrategias, para posteriormente describir mecanismos clásicos específicos, así como algunas estrategias más novedosas que se basan en modificar la estrategia de reemplazamiento.
-%
-%Finalmente, dado que en este capítulo se extiende \DE{}, se revisan también los trabajos de esta área que tienen una relación estrecha con el manejo de diversidad.
-%
-%Se recomienda a los lectores que requieran conocer estos mecanismos con más detalle consultar~\cite{Joel:Crepinsek} así como los artículos
-%específicos en que cada método es propuesto.
 
 \subsubsection{Clasificaciones de mecanismos para promover la diversidad}
 
@@ -48,25 +52,30 @@ Liu et al.~\cite{liu2009explore} propusieron diferenciar entre los enfoques uni-
 %
 En el enfoque uni-proceso se modifica la preservación de la diversidad actuando sobre un único componente del algoritmo. 
 %
-Es importante hacer énfasis que en los enfoques uni-proceso no se excluye el uso de otros componentes en el proceso de exploración y/o intensificación, en su lugar sólo se modifica una componente hasta conseguir un balanceo adecuado.
-%si no se consigue el balanceo adecuado, sólo se modifica una componente hasta conseguir el comportamiento deseado.
+Es importante hacer énfasis que en los enfoques uni-proceso no se excluye el uso de otros componentes en el proceso de 
+exploración y/o intensificación, pero sólo se modifica una componente para conseguir un balanceo adecuado.
 %
 Por otra parte, en los enfoques multi-proceso se tienen en cuenta las implicaciones que varios componentes 
 provocan sobre el balanceo, y se actúa modificando o rediseñando varios de ellos hasta conseguir el comportamiento adecuado.
 %
-Los esquemas uni-proceso son mucho más habituales actualmente (\cite{Crepinsek:13}), y en particular las dos propuestas incluidas en este capítulo son mecanismos
-uni-proceso.
+Los esquemas uni-proceso son mucho más habituales actualmente (\cite{Crepinsek:13}), y en particular las propuestas 
+iniciales incluidas en este documento son mecanismos uni-proceso.
 
-Extendiendo a lo anterior, se propuso una clasificación más específica (\cite{Crepinsek:13}), en la que se tiene en cuenta cuál es la componente que se cambia para categorizar a cada método.
+Extendiendo a lo anterior, se propuso una clasificación más específica (\cite{Crepinsek:13}), en la que se tiene en cuenta 
+cuál es la componente que se cambia para categorizar a cada método.
 %
 En este sentido, los más populares son los siguientes:
 
 \begin{itemize}
-\item \textbf{Enfoques basados en la selección}: son los más clásicos y se basan en cambiar la presión de selección que se produce hacia las zonas promisorias a la hora de realizar
-la selección de padres.
-\item \textbf{Enfoques basados en población}: se modifica el modelo poblacional utilizando algunas técnicas como variar el tamaño de la población de forma dinámica, eliminar individuos duplicados, utilizar técnicas de infusión o establecer un estrategia de islas con migraciones.
-\item \textbf{Enfoques basados en la cruza y/o la mutación}: se basan en rediseñar los operadores de cruza y/o mutación, considerando en algunos casos información específica del problema. También se incluyen en este grupo opciones más generales como aplicar restricciones sobre el emparejamiento y/o incluir operadores disruptivos que podrían ser utilizados sólo en ciertos instantes del proceso
-de optimización.
+\item \textbf{Enfoques basados en la selección}: son los más clásicos y se basan en cambiar la presión de selección que se 
+produce hacia las zonas promisorias a la hora de realizar la selección de padres.
+\item \textbf{Enfoques basados en población}: se modifica el modelo poblacional utilizando algunas técnicas como variar el 
+tamaño de la población de forma dinámica, eliminar individuos duplicados, utilizar técnicas de infusión o establecer un
+modelo basado en islas con migraciones.
+\item \textbf{Enfoques basados en la cruza y/o la mutación}: se basan en rediseñar los operadores de cruza y/o mutación, 
+considerando en algunos casos información específica del problema. También se incluyen en este grupo opciones más generales 
+como aplicar restricciones sobre el emparejamiento y/o incluir operadores disruptivos que podrían ser utilizados sólo en 
+ciertos instantes del proceso de optimización.
 \end{itemize}
 
 
@@ -74,42 +83,62 @@ de optimización.
 
 Los primeros algoritmos evolutivos se basaron principalmente en esquemas generacionales que no incluían fase de reemplazo.
 %
-En estos esquemas, la selección de padres era la principal responsable de que se muestrearan con mayor probabilidad las zonas más promisorias encontradas hasta el momento, y por tanto muchos de los primeros esquemas que trataron de evitar la convergencia prematura se basaron en modificar el proceso de selección de padres.
+En estos esquemas, la selección de padres era la principal responsable de que se muestrearan con mayor probabilidad las zonas 
+más promisorias encontradas hasta el momento, y por tanto muchos de los primeros esquemas que trataron de evitar la convergencia 
+prematura se basaron en modificar el proceso de selección de padres.
 %
-Así, en los 90's se desarrollaron varios esquemas que alteraban la presión de selección (\cite{eiben2003introduction}) de forma estática o dinámica.
+Así, en los 90's se desarrollaron varios esquemas que alteraban la presión de selección (\cite{eiben2003introduction}) de forma 
+estática o dinámica.
 %
-Sin embargo, con base en varios estudios teóricos y experimentales se observó que, generalmente, actuar exclusivamente sobre el operador de selección no es suficiente, especialmente cuando se quieren realizar ejecuciones a largo plazo, ya que se requerirían poblaciones excesivamente grandes para mantener un grado adecuado de diversidad.
+Sin embargo, con base en varios estudios teóricos y experimentales se observó que, generalmente, actuar exclusivamente sobre 
+el operador de selección no es suficiente, especialmente cuando se quieren realizar ejecuciones a largo plazo, ya que se requerirían 
+poblaciones excesivamente grandes para mantener un grado adecuado de diversidad.
 
-Otra alternativa fue modificar los modelos poblacionales, encontrando en este grupo los esquemas basados en islas (\cite{alba2005parallel}), los celulares
-o, más recientemente, los basados en \textit{agrupaciones o clústeres} (\cite{gao2014cluster}).
+Otra alternativa fue modificar los modelos poblacionales, encontrando en este grupo los esquemas basados en 
+islas (\cite{alba2005parallel}), los celulares o, más recientemente, los basados en \textit{agrupaciones o clústeres} 
+(\cite{gao2014cluster}).
 %
-La idea de introducir restricciones en el emparejamiento, principalmente con base en la ubicación de los individuos en el espacio de búsqueda también ha sido bastante exitosa aunque controlar los mismos para obtener el balanceo apropiado ante diferentes criterios de parada es bastante complejo.
+La idea de introducir restricciones en el emparejamiento, principalmente con base en la ubicación de los individuos en el 
+espacio de búsqueda también ha sido bastante exitosa aunque controlar los mismos para obtener el balanceo apropiado ante 
+diferentes criterios de parada es bastante complejo.
 %
-En algunos casos resultó ser más prometedor promover el emparejamiento entre individuos no similares (\cite{Joel:CHC}), mientras que en otros escenarios se hace exactamente lo opuesto (\cite{deb1989investigation}).
+Por ejemplo, en algunos casos resultó ser más prometedor promover el emparejamiento entre individuos no similares (\cite{Joel:CHC}), 
+mientras que en otros escenarios se hace exactamente lo opuesto (\cite{deb1989investigation}), siendo una muestra de la falta
+de generalidad de este tipo de técnicas.
 %
-Otro problema común de muchas de las estrategias anteriores es que suelen introducir parámetros adicionales, por lo que el proceso de ajuste de parámetros, que ya de por sí es un problema importante en estos algoritmos, se vuelve aún más complejo.
+Otro problema común de muchas de las estrategias anteriores es que suelen introducir parámetros adicionales, por lo que el 
+proceso de ajuste de parámetros, que ya de por sí es un problema importante en estos algoritmos, se vuelve aún más complejo.
 %
-Es importante resaltar que todas estas estrategias clásicas no evitan por completo la convergencia sino que la idea es disponer de mecanismos para acelerarla o retrasarla.
+Es importante resaltar que todas estas estrategias clásicas no evitan por completo la convergencia sino que la idea es disponer 
+de mecanismos para acelerarla o retrasarla.
 
 Otra alternativa diferente ha sido adaptar la fase de variación.
 %
-En este sentido se han desarrollado diversas técnicas para controlar los parámetros que se consideran en la variación con el propósito de adaptar el balanceo entre exploración e intensificación.
+En este sentido se han desarrollado diversas técnicas para controlar los parámetros que se consideran en la variación 
+con el propósito de adaptar el balanceo entre exploración e intensificación.
 %
-En algunos casos esto se consigue usando distintos valores en los parámetros para distintas etapas a lo largo del proceso de optimización (\cite{yu2014differential}), mientras que en otros casos se hacen cambios más drásticos y se consideran varios operadores con distintas propiedades (\cite{lobo2007parameter}).
+En algunos casos esto se consigue usando distintos valores en los parámetros para distintas etapas a lo largo del proceso de 
+optimización (\cite{yu2014differential}), mientras que en otros casos se hacen cambios más drásticos y se consideran varios 
+operadores con distintas propiedades (\cite{lobo2007parameter}).
 %
-También existen mecanismos adaptativos que usan una memoria para almacenar información histórica sobre los efectos de la variación y con base en ello ir modificándola (\cite{yuen2009genetic}).
+También existen mecanismos adaptativos que usan una memoria para almacenar información histórica sobre los efectos de la 
+variación y con base en ello ir modificándola (\cite{yuen2009genetic}).
 %
-Cabe destacar que en la mayor parte de estos esquemas no se considera la diversidad de forma directa, sino que sólo se considera para analizar el comportamiento y con base en ello se procede a un rediseño.
+Cabe destacar que en la mayor parte de estos esquemas no se considera la diversidad de forma directa, sino que sólo se considera 
+para analizar el comportamiento y con base en ello se procede a un rediseño.
 
 Finalmente, un esquema muy sencillo pero no por ello menos importante es el basado en reinicios.
 %
-En estos esquemas, en lugar de evitar la convergencia acelerada, se aplica un reinicio total o parcial de la población cada cierto número de generaciones o cuando se detecta que la población ha convergido.
+En estos esquemas, en lugar de evitar la convergencia acelerada, se aplica un reinicio total o parcial de la población cada 
+cierto número de generaciones o cuando se detecta que la población ha convergido.
 %
 Con base en esto se han propuesto diversas estrategias para establecer los puntos de reinicio (\cite{jansen2002analysis}).
 %
-Estos esquemas se implementan de forma muy sencilla y en algunos casos han proporcionado mejoras significativas (\cite{koumousis2006saw}) por lo que es un método a tener en cuenta, al menos como alternativa inicial.
+Estos esquemas se implementan de forma muy sencilla y en algunos casos han proporcionado mejoras significativas 
+(\cite{koumousis2006saw}) por lo que es un método a tener en cuenta, al menos como alternativa inicial.
 %
-Es común combinar las estrategias basadas en reinicio con algunas de las técnicas anteriores, ya que dichas técnicas están basadas en mantener la diversidad, mientras que en esta última el objetivo es recuperar la diversidad.
+Es común combinar las estrategias basadas en reinicio con algunas de las técnicas anteriores, ya que dichas técnicas están 
+basadas en mantener la diversidad, mientras que en esta última el objetivo es recuperar la diversidad.
 
 \subsubsection{Esquemas de reemplazamiento basados en diversidad}
 
@@ -118,42 +147,52 @@ Recientemente se han propuesto diversos mecanismos que modifican la fase de reem
 La idea principal de estos esquemas es inducir un grado de exploración adecuado diversificando a los individuos sobrevivientes,
 de forma que los operadores de reproducción puedan generar nuevas soluciones en diferentes regiones en las siguientes generaciones.
 %
-Estos métodos están basados en el principio de que los operadores de cruza tienen un efecto de exploración al 
-considerar individuos distantes y de intensificación al considerar individuos próximos (\cite{eiben1998evolutionary}).
+Para el caso de los evolutivos estos métodos están basados en el principio de que los operadores de cruza tienen un 
+efecto de exploración al considerar individuos distantes y de intensificación al considerar individuos 
+próximos (\cite{eiben1998evolutionary}).
 
-El esquema de pre-selección propuesto por Cavicchio (\cite{grefenstette1986optimization}) es uno de los primeros estudios que utilizan la fase de reemplazamiento para controlar la diversidad.
+El esquema de pre-selección propuesto por Cavicchio (\cite{grefenstette1986optimization}) es uno de los primeros estudios 
+en que utilizan la fase de reemplazamiento para controlar la diversidad.
 %
-El esquema inicial de Cavicchio se extendió para generar el esquema denominado \textit{amontonamiento o crowding} (\cite{de1975analysis}), el cual ha sido muy popular 
-en los últimos años (\cite{mahfoud1992crowding, mengshoel2014adaptive}).
+El esquema inicial de Cavicchio se extendió para generar el esquema denominado \textit{amontonamiento o crowding} 
+(\cite{de1975analysis}), el cual ha sido muy popular en los últimos años (\cite{mahfoud1992crowding, mengshoel2014adaptive}).
 %
-El principio del crowding se basa en que los nuevos individuos que entren en la población sustituyan a individuos similares de generaciones anteriores, y con base en este principio, se han formulado diversas implementaciones.
+El principio del crowding se basa en que los nuevos individuos que entren en la población sustituyan a individuos similares 
+de generaciones anteriores, y con base en este principio, se han formulado diversas implementaciones.
 
 En esta misma línea, se han propuesto otras estrategias de reemplazo con el propósito de promover la diversidad.
 %
 Uno de los procedimientos más populares es la \textit{Estrategia de Limpieza} (Clearing Strategy - CLR)~\cite{lozano2008replacement}.
 %
-En el procedimiento CLR se agrupan a los individuos en grupos denominados nichos, y los mejores individuos de cada nicho son preservados e incluidos en la población de la siguiente generación.
+En el procedimiento CLR se agrupan a los individuos en grupos denominados nichos, y los mejores individuos de cada nicho 
+son preservados e incluidos en la población de la siguiente generación.
 %
-Un inconveniente de este procedimiento es que los casos en que se detectan muchos nichos provocan una fuerte inmovilización de la población.
+Un inconveniente de este procedimiento es que los casos en que se detectan muchos nichos provocan una fuerte inmovilización 
+de la población.
 %
-Por ello, Petrowski (\cite{petrowski1996clearing}) propuso una variante para únicamente seleccionar a individuos cuya aptitud sea mejor que la media de la población.
-
+Por ello, Petrowski (\cite{petrowski1996clearing}) propuso una variante para únicamente seleccionar a individuos cuya aptitud 
+sea mejor que la media de la población.
 
 Otros métodos de este grupo consideran funciones de aptitud que combinan la función objetivo original con la diversidad.
 %
 Sin embargo, es complejo construir una función compuesta ya que las dos mediciones podrían no ser directamente compatibles,
 y por lo tanto, las funciones adecuadas suelen depender de cada problema.
 %
-Una forma de suavizar este inconveniente fue propuesto en el algoritmo de combinación - COMB (\cite{vidal2013hybrid}) donde los individuos son ordenados y categorizados con base en su aptitud y contribución a la diversidad, y la función compuesta se diseña con base en el orden y no con base en los valores de función objetivo y contribución a diversidad.
+Una forma de suavizar este inconveniente fue propuesto en el algoritmo de combinación - COMB (\cite{vidal2013hybrid}) donde 
+los individuos son ordenados y categorizados con base en su aptitud y contribución a la diversidad, y la función compuesta se 
+diseña con base en el orden y no con base en los valores de función objetivo y contribución a diversidad.
 %
-La principal desventaja del COMB es que requiere dos parámetros de usuario, aunque independientemente de esto, se ha usado con bastante éxito.
+La principal desventaja del COMB es que requiere dos parámetros de usuario, aunque independientemente de esto, se ha usado con
+bastante éxito.
 %
 Otra alternativa es el procedimiento \textit{Reemplazamiento Basado en Contribución a la Diversidad y Sustitución del Peor} 
 (Contribution of Diversity/Replace Worst - CD/RW - \cite{lozano2008replacement}).
 %
-En el método CD/RW un nuevo individuo reemplaza a un miembro de la población cuyo rendimiento sea peor tanto en aptitud como en contribución a la diversidad.
+En el método CD/RW un nuevo individuo reemplaza a un miembro de la población cuyo rendimiento sea peor tanto en aptitud como 
+en contribución a la diversidad.
 %
-En caso de no encontrar un peor individuo bajo estos dos criterios, se procede a reemplazar al peor individuo en la población considerando únicamente a la aptitud.
+En caso de no encontrar un peor individuo bajo estos dos criterios, se procede a reemplazar al peor individuo en la población 
+considerando únicamente a la aptitud.
 %
 Una última alternativa se basa en considerar a la contribución a la diversidad como un objetivo adicional y aplicar un esquema de 
 optimización multi-objetivo~\cite{bui2005multiobjective}~\cite{mouret2011novelty}.
@@ -163,103 +202,140 @@ Estos enfoques son identificados como algoritmos multi-objetivo basados en diver
 Existen varias estrategias para calcular el objetivo auxiliar~\cite{segura2013using}.
 %
 Uno de los enfoques más populares consiste en calcular la contribución a la diversidad de cada individuo con base en 
-la \textit{Distancia al Vecino más Cercano} (Distance to the Closest Neighbor - DCN - \cite{segura2016novel}) de entre los individuos que ya hayan sido seleccionados
-como supervivientes.
+la \textit{Distancia al Vecino más Cercano} (Distance to the Closest Neighbor - DCN - \cite{segura2016novel}) de entre los 
+individuos que ya hayan sido seleccionados como supervivientes.
 
 \subsection{Algoritmos mono-objetivo que consideran la diversidad}
-En optimización estocástica, específicamente en el caso mono-objetivo, se ha desarrollado una variedad de algoritmos evolutivos con el propósito de tratar aspectos relacionados con la falta de diversidad, específicamente la convegencia prematura (\cite{Joel:Crepinsek}).
+
+En optimización estocástica, específicamente en el caso mono-objetivo, se ha desarrollado una variedad de algoritmos evolutivos 
+con el propósito de tratar aspectos relacionados con la falta de diversidad, específicamente la convergencia 
+prematura (\cite{Joel:Crepinsek}).
 %
-Algunos de los algoritmos populares que están relacionados con temas de diversidad son Saw-Tooth (\cite{Joel:SAWTOOTH}), CHC (\cite{Joel:CHC}) y Multi-Dynamic (\cite{Joel:MULTI_DYNAMIC}).
+De hecho, la mayor parte de técnicas mencionadas en el apartado anterior han sido aplicadas en el ámbito de optimización
+mono-objetivo.
 %
-Este último relaciona el manejo de diversidad en el espacio de las variables con el criterio de paro establecido. % \cite{Joel:segura2016improving}.
+Algunos de los algoritmos que toman en cuenta la diversidad para optimización mono-objetivo y que han tenido un rendimiento
+destacable son Saw-Tooth (\cite{Joel:SAWTOOTH}), CHC (\cite{Joel:CHC}) y Multi-Dynamic (\cite{Joel:MULTI_DYNAMIC}).
 %
-De esta forma, y dependiendo del criterio de paro, en las fases iniciales se promueve un mayor nivel de exploración y conforme van transcurriendo las generaciones se realiza un cambio gradual para obtener un mayor nivel de intensificación.
+Este último esquema relaciona el manejo de diversidad en el espacio de las variables con el criterio de paro establecido. 
 %
-Este control se puede realizar desde distintos enfoques, y se ha visto experimentalmente que actuar sobre varias fases puede ser beneficioso (\cite{Joel:ANovelDiversityBasedEAForTheTSP}).
+De esta forma, y dependiendo del criterio de paro, en las fases iniciales se promueve un mayor nivel de exploración y 
+conforme van transcurriendo las generaciones se realiza un cambio gradual para obtener un mayor nivel de intensificación.
 %
-Este tipo de métodos se han vuelto exitosos en optimización mono-objetivo, proporcionando el desarrollo de optimizadores que actualmente han encontrado los mejores resultados en varios problemas conocidos, como es el problema de ordenación lineal, el problema de asignación de frecuencias \citetitle{Joel:Dynamic_FAP} (\cite{Joel:Dynamic_FAP}), el problema del Sudoku \citetitle{Joel:Dynamic_Sudoku} (\cite{Joel:Dynamic_Sudoku}), el problema del agente viajero \citetitle{Joel:ANovelDiversityBasedEAForTheTSP} (\cite{Joel:ANovelDiversityBasedEAForTheTSP}), entre otros.
+Este control se puede realizar desde distintos enfoques, y se ha visto experimentalmente que actuar sobre varias fases puede 
+ser beneficioso (\cite{Joel:ANovelDiversityBasedEAForTheTSP}).
+%
+Este tipo de métodos se han vuelto exitosos en optimización mono-objetivo, proporcionando el desarrollo de optimizadores 
+que actualmente han encontrado los mejores resultados en varios problemas conocidos, como es el problema de ordenación lineal, 
+el problema de asignación de frecuencias \citetitle{Joel:Dynamic_FAP} (\cite{Joel:Dynamic_FAP}), 
+el problema del Sudoku \citetitle{Joel:Dynamic_Sudoku} (\cite{Joel:Dynamic_Sudoku}), 
+el problema del agente viajero \citetitle{Joel:ANovelDiversityBasedEAForTheTSP} (\cite{Joel:ANovelDiversityBasedEAForTheTSP}), 
+entre otros.
 
 \subsection{Algoritmos multi-objetivo que consideran la diversidad en el espacio de las variables}
 
+En optimización multi-objetivo es posible encontrar inconvenientes en cierta forma similares a los encontrados en 
+problemas mono-objetivo.
 %
-En optimización multi-objetivo es posible encontrar los mismos inconvenientes que en problemas mono-objetivo, además al considerar varios objetivos que usualmente están en conflicto es necesario mantener soluciones diversas.
+Sin embargo, al considerar varios objetivos que usualmente están en conflicto, los algoritmos del estado de arte
+mantienen diversidad de forma explícita en el espacio objetivo, lo que provoca que de forma indirecta se mantenga
+cierta diversidad en el espacio de las variables.
 %
-Así, un problema multi-objetivo está compuesto por dos espacios, el primero consiste en el espacio de las variables y sus respectivas imagenes conforman el espacio objetivo.
+De esta forma, en el caso multi-objetivo es importante distinguir entre lo que está ocurriendo en dos espacios, el primero 
+consiste en el espacio de las variables, mientras que sus respectivas imágenes conforman el segundo espacio, es decir,
+el espacio objetivo.
 %
-Además, no existe una correspondencia directa entre la diversidad de los dos espacios (\cite{shir2009enhancing}), esto quiere decir que un grado determinado de diversidad en el espacio objetivo no implica que siempre existirá un grado determinado de diversidad en el espacio de las variables.
+Dado que no existe una correspondencia directa entre la diversidad de los dos espacios (\cite{shir2009enhancing}), 
+podemos concluir que un grado determinado de diversidad en el espacio objetivo no implica un grado determinado de diversidad 
+en el espacio de las variables.
 
-% 
-En todos los problemas multi-objetivo no existe una relación identica entre ambos espacios, debido a esto los algoritmos evolutivos de optimización multi-objetivo están diseñados principalmente para mantener diversidad en el espacio objetivo, perdiendo la influencia directa que existe por parte de la diversidad en espacio de las variables.
+Dado que a la hora de hacer optimización multi-objetivo se quieren encontrar soluciones diversas en el espacio objetivo, los 
+algoritmos evolutivos de optimización multi-objetivo están diseñados principalmente para mantener diversidad en el 
+espacio objetivo y son muy pocos los que consideran la diversidad en el espacio de las variables. 
 
 %
-Actualmente ya existen varios trabajos que proporcionan relevancia a la diversidad en el espacio de las variables (\cite{Joel:GECCO17}).
+Actualmente ya existen varios trabajos que consideran las implicaciones de la diversidad del espacio de las 
+variables (\cite{Joel:GECCO17}).
 %
-Una estrategia popular consiste en aplicar restricciones para realizar el emparejamiento de los individuos (\cite{Joel:MOEAD_AMS}), en base a varios estudios presentados en \citetitle{Joel:STUDY_MATTING_RESTRICTION} por \citeauthor{Joel:STUDY_MATTING_RESTRICTION}, donde se define una restricción de emparejamiento específicamente con soluciones cercanas o similiares en el espacio de las variables, debido a que emparejar dos individuos alejados tiende a generar individuos distantes y no útiles en el espacio de búsqueda.
+Una estrategia popular consiste en aplicar restricciones para realizar el emparejamiento de los individuos 
+(\cite{Joel:MOEAD_AMS}).
 %
-Otra alternativa consiste en implementar esquemas de reinicios (\cite{ joel:jaeggi2008development, Joel:Improved_Multiobjective_Diversity_Control_Oriented_Genetic_Algorithm}).
+En varios estudios presentados en \citetitle{Joel:STUDY_MATTING_RESTRICTION} por \citeauthor{Joel:STUDY_MATTING_RESTRICTION}
+se define una restricción de emparejamiento teniendo en cuenta cercanía en el espacio de las variables.
 %
-Sin embargo en el caso multi-objetivo no se ha establecido una propuesta en donde la diversidad sea administrada de forma explícita y que dependa del criterio de parada.
+Estos mecanismos se basan en que emparejar individuos demasiado diferentes entre sí tiende a generar individuos distantes 
+y no útiles en el espacio de búsqueda.
 %
+Otra alternativa consiste en implementar esquemas de reinicios 
+(\cite{ joel:jaeggi2008development, Joel:Improved_Multiobjective_Diversity_Control_Oriented_Genetic_Algorithm}).
+%
+En el caso multi-objetivo no se ha establecido una propuesta en donde la diversidad sea administrada de forma explícita 
+y que dependa del criterio de parada.
 
-
-En base al estudio de diversidad realizado por \citeauthor{Joel:GECCO17} en \citetitle{Joel:GECCO17} se ha comprobado que los MOEAs poseen problemas de diversidad.
+Con base en estudio de diversidad realizado por \citeauthor{Joel:GECCO17} en \citetitle{Joel:GECCO17} se ha comprobado que 
+los algoritmos evolutivos multi-objetivo poseen problemas de diversidad muy similares a los que aparecen en el caso mono-objetivo.
 %
 %Específicamente en este capítulo se utiliza el mismo principio que en \citeauthor{Joel:MULTI_DYNAMIC}, que está diseñado especialmente para problemas de un solo objetivo y administra la diversidad en el espacio de las variables de forma explícita. 
 
 %\subsection{Trabajos relacionados}
 
-A través de las últimas décadas se han presentado varios trabajos de tipo multi-objetivo que están relacionados con promover soluciones diversas en el espacio de las variables, así los primeros trabajos surgieron con el propósito de resolver funciones objetivo de tipo multi-modal (\cite{preuss2006pareto}).
-
+Otros trabajos que tienen gran relevancia para la tesis son aquellos que tratan de resolver problemas mono-objetivo o multi-objetivo 
+pero a la vez tratan de encontrar soluciones que sean diversas en el espacio de las variables~\cite{preuss2006pareto}.
 %
-En especial, esta categoría de algoritmos pueden ser de interés en problemas de aplicación real, ya que es necesario proporcionar soluciones bien distribuidas en el espacio de decisión (\cite{deb2005omni, rudolph2007capabilities}).
-
+En especial, esta categoría de algoritmos pueden ser de interés en problemas de aplicación real en los que es necesario 
+proporcionar soluciones bien distribuidas en el espacio de decisión (\cite{deb2005omni, rudolph2007capabilities}).
 %
-En base a las estrategias utilizadas en un sólo objetivo, se han propuesto distintas técnicas de nichos en el campo de optimización multi-objetivo.
-
+Con base en las estrategias utilizadas para optimización mono-objetivo se han propuesto distintas técnicas de nichos en el 
+campo de optimización multi-objetivo.
 %
-De hecho uno de los primeros algoritmos evolutivos multi-objetivo que introducen este tipo de técnicas es el NPGA (Nicho Pareto Genetic Algorithm - \cite{Joel:NPGA}).
-
+De hecho uno de los primeros algoritmos evolutivos multi-objetivo que introducen este tipo de técnicas es el NPGA 
+(Niched Pareto Genetic Algorithm - \cite{Joel:NPGA}).
 %
 Este algoritmo es una variante del método de nichos con aptitud compartida (\textit{fitness sharing niching method}).
-
 %
-Posteriormente, \citeauthor{toffolo2003genetic} en el \citeyear{toffolo2003genetic} propusieron otro algoritmo para obtener soluciones diversas tanto en el espacio de las variables como en el espacio objetivo conocido como GDEA.
-
+Posteriormente, \citeauthor{toffolo2003genetic} en el \citeyear{toffolo2003genetic} propusieron otro algoritmo para obtener 
+soluciones diversas tanto en el espacio de las variables como en el espacio objetivo conocido como GDEA.
 %
-Este algoritmo implementa dos criterios de selección, el primero por medio de una ordenación de soluciones no dominadas y el segundo consiste en una métrica para la diversidad en el espacio de la variables.
-
+Este algoritmo implementa dos criterios de selección, el primero por medio de una ordenación de soluciones no dominadas y el 
+segundo consiste en una métrica para la diversidad en el espacio de la variables.
 %
-
-En el \citeyear{deb2005omni}, \citeauthor{deb2005omni} propusieron el ``Omni-optimized'' considerado como una generalización del NSGA-II, en este algoritmo se incorpora la diversidad en los dos espacios, además se propone un nuevo criterio de selección y se aplica la definición de dominancia-$\epsilon$.
-
+En el \citeyear{deb2005omni}, \citeauthor{deb2005omni} propusieron el ``Omni-optimized'' considerado como una generalización 
+del NSGA-II.
+%
+En este algoritmo se incorpora la diversidad en los dos espacios, además se propone un nuevo criterio de selección y se aplica 
+la definición de dominancia-$\epsilon$.
 %
 Sin embargo, en el proceso de selección únicamente se considera la diversidad de un espacio por cada generación.
 
 
-En el \citeyear{chan2005evolutionary}, \citeauthor{chan2005evolutionary} propusieron dos operadores de selección, para fomentar la diversidad en cada uno de los espacios.
+En el \citeyear{chan2005evolutionary}, \citeauthor{chan2005evolutionary} propusieron dos operadores de selección, para 
+fomentar la diversidad en cada uno de los espacios.
 %
 Particularmente, se implementaron estos operadores en los algoritmos KP1 y KP2.
 %
-Así, en cada generación son incorporados dos criterios para medir la diversidad de las soluciones en los espacios correspondientes.
-
+Así, en cada generación se incorporan dos criterios para medir la diversidad de las soluciones en los espacios correspondientes.
 %
 Estos son el hipervolumen de cada individuo para el espacio objetivo y un conteo de los vecinos para el espacio de las variables.
-
-
-En el 2009, \citeauthor{shir2009enhancing} propusieron una variante del NSGA-II conocido como ``NSGA-II-agg'', donde se realiza la agregación de la diversidad presentada en los dos espacios, principalmente en este trabajo se propone el Niching-CMA.
 %
+En el 2009, \citeauthor{shir2009enhancing} propusieron una variante del NSGA-II conocido como ``NSGA-II-agg'', donde se realiza 
+la agregación de la diversidad presentada en los dos espacios.
 %
-
-Uno de los primeros algoritmos que considera la diversidad y es basado en indicadores es denominado como el DIVA (\textit{Diversity Integrating Hypervolume-based Search Algorithm}) propuesto en el \citeyear{ulrich2010integrating} por \citeauthor{ulrich2010integrating}, donde se combina la diversidad en el espacio de la variables y el indicador del hipervolumen, para realizar esto se modifica la métrica del hipervolúmen conformado por la suma de particiones en el espacio objetivo, donde cada partición es multiplicada por un factor que corresponde a la diversidad en el espacio de las variables, sin embargo esta modificación del hipervolumen aún se considera como Pareto \textit{compliant}.
+Uno de los primeros algoritmos basados en indicadores que considera la diversidad es el denominado DIVA 
+(\textit{Diversity Integrating Hypervolume-based Search Algorithm}) propuesto en el \citeyear{ulrich2010integrating} 
+por \citeauthor{ulrich2010integrating}.
+%
+En el mismo se combina la diversidad en el espacio de la variables y el indicador del hipervolumen.
 %
 Un aspecto interesante de este algoritmo es que en el espacio de las variables se consideran vecindades en base a hiper-rectángulos.
 
-
-Por otra parte, siendo parte de la familia de EDAs (Algoritmos de Estimación de Distribución) se encuentra el MMEDA propuesto por \citeauthor{zhou2009approximating} en el \citeyear{zhou2009approximating}, este implementa una fase de modelación donde la población es agrupada en base al espacio objetivo y posteriormente se genera un modelo probabilistico para la distribución de soluciones óptimas en el espacio de las variables.
+Por otra parte, siendo parte de la familia de EDAs, se encuentra el MMEDA propuesto por \citeauthor{zhou2009approximating} 
+en el \citeyear{zhou2009approximating}.
 %
-Este modelo puede promover la diversidad en los dos espacios.
+Este algoritmo implementa una fase donde la población se agrupa con base al espacio objetivo y posteriormente 
+se genera un modelo probabilístico para la distribución de soluciones óptimas en el espacio de las variables.
+%
+Este modelo trata de promover la diversidad en los dos espacios.
 
-
-Actualmente, se han presentado varios trabajos que corresponden a las variables de decisión, algunos están orientados hacia la escalabilidad de las variables e implementan procesos de aprendizaje para capturar dependencias como es el algoritmo \citetitle{ma2016multiobjective} propuesto por \citeauthor{ma2016multiobjective} en el \citeyear{ma2016multiobjective}.
-
-
+Como hemos destacado anteriormente, ninguno de estos trabajos anteriores considera de forma simultánea la diversidad y el tiempo
+transcurrido o criterio de parada establecida, por lo que consideramos que es muy difícil que estos esquemas de adapten correctamente
+al considerar diferentes criterios de parada.
