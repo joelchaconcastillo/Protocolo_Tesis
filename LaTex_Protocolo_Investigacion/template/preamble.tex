@@ -364,12 +364,14 @@ fontsize=\myfontsize,%% size of the main text
 paper=\mypapersize,  %% paper format
 parskip=\myparskip,  %% vertical space between paragraphs (instead of indenting first par-line)
 DIV=calc,            %% calculates a good DIV value for type area; 66 characters/line is great
+%chapterprefix=false,
 headinclude=true,    %% is header part of margin space or part of page content?
 footinclude=false,   %% is footer part of margin space or part of page content?
 open=right,          %% "right" or "left": start new chapter on right or left page
-appendixprefix=true, %% adds appendix prefix; only for book-classes with \backmatter
+%appendixprefix=true, %% adds appendix prefix; only for book-classes with \backmatter
 bibliography=totoc,  %% adds the bibliography to table of contents (without number)
 draft=\mydraft,      %% if true: included graphics are omitted and black boxes
+%chapter=totoc,
                      %%          mark overfull boxes in margin space
 BCOR=\myBCOR,        %% binding correction (depends on how you bind
                      %% the resulting printout.
@@ -704,3 +706,14 @@ hyperref=true, %% using hyperref-package references
 %% vim:foldmethod=expr
 %% vim:fde=getline(v\:lnum)=~'^%%%%'?0\:getline(v\:lnum)=~'^%doc.*\ .\\%(sub\\)\\?section{.\\+'?'>1'\:'1':
 \usepackage{float}
+%\usepackage{fancyhdr}
+%\setcounter{chapter}{1}
+
+\newcommand{\mychapter}[2]{
+    \setcounter{chapter}{#1}
+    \setcounter{section}{0}
+    \chapter*{#2}
+    \addcontentsline{toc}{chapter}{#2}
+}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}

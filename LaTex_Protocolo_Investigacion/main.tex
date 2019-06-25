@@ -51,7 +51,7 @@
 %% spacing. Please use with caution: 100% ("1.0") is fine because the
 %% font was designed for it.
 
-\newcommand{\mylanguage}{ngerman,american}
+\newcommand{\mylanguage}{ngerman,american, spanish}
 %% "english,ngerman", "ngerman,english", ...
 %% NOTE: The *last* language is the active one!
 %% See babel documentation for further details.
@@ -106,6 +106,8 @@
 %% "template/title_VWA": titlepage for Vorwissenschaftliche Arbeit
 
 \newcommand{\mytodonotesoptions}{}
+
+\newcommand{\myhead}{Protocolo de investigaci\'on de la T\'esis de Joel Chac\'on Castillo}
 %% e.g., "" (empty), "disable", ...
 %% Options for the todonotes-package. If "disable", all todonotes will
 %% be hidden (including listoftodos).
@@ -135,7 +137,8 @@
 \newcommand{\myauthor}{Joel Chacón Castillo}  %% also used for PDF
 %% general metadata:
 \newcommand{\mynamecimat}{Centro de Investigación en Matemáticas, A. C.}  %% also used for PDF metadata (hyperref)
-\newcommand{\mytitle}{Protocolo de investigación}  %% also used for PDF metadata (hyperref)
+\newcommand{\mytitle}{Protocolo de investigación}% de la Tesis ''Importancia de la diversidad y criterio de parada en el diseño de optimizadores estocásticos``}  %% also used for PDF metadata (hyperref)
+
 %\newcommand{\mysubtitle}{ }  %% only used with title_Thesis_TU_Graz_-_kazemakase
 %\newcommand{\mysubject}{SUBJECT}  %% also used for PDF metadata (hyperref)
 %\newcommand{\mykeywords}{KEYWORDS}  %% also used for PDF metadata (hyperref)
@@ -272,12 +275,36 @@
 
 %\input{example-short-chapter}   %% remove this line to get rid of the example chapter
 %\input{example-style-chapter}   %% remove this line to get rid of the style chapter
+\mychapter{1}{Protocolo de investigación}
+%\chaptermark{Protocolo de investigación}{}
+\section{Introducción y antecedentes}
+\sectionmark{\myhead}
 \input{Introduccion}
+
+\section{Estado del arte}
+\sectionmark{\myhead}
+\label{sec:estado_arte}
 \input{Estado_del_arte}
+
+\section{Hipótesis}
+\sectionmark{\myhead}
 \input{Hipotesis}
+
+\section{Objetivos}
+\sectionmark{\myhead}
 \input{Objetivos}
+
+\section{Propuestas iniciales}
+\sectionmark{\myhead}
 \input{Propuestas_iniciales}
+
+\section{Líneas de trabajo}
+\sectionmark{\myhead}
 \input{Lineas_de_trabajo_conclusiones}
+\pagebreak
+
+\section{Cronograma}
+\sectionmark{\myhead}
 \input{Cronograma}
 %% include tex file chapters:
 % \include{introduction}        %% this is a suggestion: you have to create this file on demand

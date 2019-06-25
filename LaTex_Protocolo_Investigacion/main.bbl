@@ -756,43 +756,6 @@
       \field{year}{2008}
       \field{pages}{4421\bibrangedash 4433}
     \endentry
-    \entry{ma2016multiobjective}{article}{}
-      \name{labelname}{8}{}{%
-        {{uniquename=0,hash=e0bed6e6876c793625601b0e4240fd3b}{Ma}{M\bibinitperiod}{Xiaoliang}{X\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f366ed4d779dfffcffc0a514cf788132}{Liu}{L\bibinitperiod}{Fang}{F\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9526cb74f8cb7701ec2497cc597c9079}{Qi}{Q\bibinitperiod}{Yutao}{Y\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=cd26424dac955ebe267f1a2f0325d9f3}{Wang}{W\bibinitperiod}{Xiaodong}{X\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=ad981f166a3d78a687769b44b3607c55}{Li}{L\bibinitperiod}{Lingling}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=a30db259f27bb5f90cfea9602f78d129}{Jiao}{J\bibinitperiod}{Licheng}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=fa21e3b382af4552a5d673d6b5a6baf1}{Yin}{Y\bibinitperiod}{Minglei}{M\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=af3306d0262e3a4ca0709d6e154b4890}{Gong}{G\bibinitperiod}{Maoguo}{M\bibinitperiod}{}{}{}{}}%
-      }
-      \name{author}{8}{}{%
-        {{uniquename=0,hash=e0bed6e6876c793625601b0e4240fd3b}{Ma}{M\bibinitperiod}{Xiaoliang}{X\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=f366ed4d779dfffcffc0a514cf788132}{Liu}{L\bibinitperiod}{Fang}{F\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=9526cb74f8cb7701ec2497cc597c9079}{Qi}{Q\bibinitperiod}{Yutao}{Y\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=cd26424dac955ebe267f1a2f0325d9f3}{Wang}{W\bibinitperiod}{Xiaodong}{X\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=ad981f166a3d78a687769b44b3607c55}{Li}{L\bibinitperiod}{Lingling}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=a30db259f27bb5f90cfea9602f78d129}{Jiao}{J\bibinitperiod}{Licheng}{L\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=fa21e3b382af4552a5d673d6b5a6baf1}{Yin}{Y\bibinitperiod}{Minglei}{M\bibinitperiod}{}{}{}{}}%
-        {{uniquename=0,hash=af3306d0262e3a4ca0709d6e154b4890}{Gong}{G\bibinitperiod}{Maoguo}{M\bibinitperiod}{}{}{}{}}%
-      }
-      \list{publisher}{1}{%
-        {IEEE}%
-      }
-      \strng{namehash}{f254f199cf9fa931e7ea3bc408fa2496}
-      \strng{fullhash}{ce1797d0e34421d851ee9d65fbf7f5a7}
-      \field{sortinit}{M}
-      \field{labelyear}{2016}
-      \field{datelabelsource}{}
-      \field{labeltitle}{A multiobjective evolutionary algorithm based on decision variable analyses for multiobjective optimization problems with large-scale variables}
-      \field{journaltitle}{IEEE Transactions on Evolutionary Computation}
-      \field{number}{2}
-      \field{title}{A multiobjective evolutionary algorithm based on decision variable analyses for multiobjective optimization problems with large-scale variables}
-      \field{volume}{20}
-      \field{year}{2016}
-      \field{pages}{275\bibrangedash 298}
-    \endentry
     \entry{mahfoud1992crowding}{article}{}
       \name{labelname}{1}{}{%
         {{uniquename=0,hash=9ed98450ffee536cf34930e6f8d76fcb}{Mahfoud}{M\bibinitperiod}{Samir\bibnamedelima W}{S\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
